@@ -15,5 +15,5 @@ DEPENDS:append:qcom = " weston"
 
 do_configure:prepend:qcom() {
   install -d ${STAGING_DIR_HOST}${datadir}/wayland-protocols/stable/gbm-buffer-backend/
-  cp ${TMPDIR}/sysroots-components/${TUNE_PKGARCH}/weston/usr/share/libweston-10/protocols/gbm-buffer-backend.xml ${STAGING_DIR_HOST}${datadir}/wayland-protocols/stable/gbm-buffer-backend
+  cp ${STAGING_DIR_HOST}${datadir}/libweston-10/protocols/gbm-buffer-backend.xml ${STAGING_DIR_HOST}${datadir}/wayland-protocols/stable/gbm-buffer-backend
 }
