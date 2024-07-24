@@ -1,19 +1,20 @@
 inherit systemd
 
-DEPENDS += "libsoup-2.4"
+DEPENDS:append:qcom = " libsoup-2.4"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
-SRC_URI += "file://gstd.service \
-            file://0001-Unblock-GSTD-pipeline-if-a-plugin-refuses-to-change-.patch"
+SRC_URI:append:qcom = " \
+	file://gstd-env_qcm6490 \
+	file://gstd.service \
+	file://0001-Unblock-GSTD-pipeline-if-a-plugin-refuses-to-change-.patch \
+"
 
-SRCREV = "d924fcbc2123dcfcb35242ecf5dc2fc3049004b3"
-
-SRC_URI:append:qcom = " file://gstd-env_qcm6490"
+SRCREV:qcom = "d924fcbc2123dcfcb35242ecf5dc2fc3049004b3"
 
 SRC_URI:remove:qcom = "file://0001-gstd-yocto-compatibility.patch"
 
-EXTRA_OECONF = "--with-gstd-runstatedir=/tmp"
+EXTRA_OECONF:append:qcom = " --with-gstd-runstatedir=/tmp"
 
 do_configure:prepend:qcom () {
         echo -n "" > ${WORKDIR}/git/libgstc/python/Makefile.am
@@ -39,8 +40,8 @@ do_install:append:qcom () {
         rm -rf ${D}${localstatedir}/run
 }
 
-SYSTEMD_SERVICE:${PN} = "gstd.service"
+SYSTEMD_SERVICE:${PN}:qcom = "gstd.service"
 
-FILES:${PN} += " /tmp"
+FILES:${PN}:append:qcom = " /tmp"
 
-INSANE_SKIP:${PN} += "useless-rpaths empty-dirs"
+INSANE_SKIP:${PN}:append:qcom = " useless-rpaths empty-dirs"
