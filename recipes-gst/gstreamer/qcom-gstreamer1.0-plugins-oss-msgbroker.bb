@@ -12,7 +12,7 @@ DEPENDS := "gstreamer1.0"
 DEPENDS += "mosquitto"
 
 SRC_URI =+ "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/gst-plugins-qti-oss.git;protocol=https;rev=9738171ffc03effaa22e2c4508833544b8879404;branch=imsdk.lnx.2.0.0.r2-rel;subpath=gst-plugin-msgbroker/"
-S = "${WORKDIR}/gst-plugin-msgbroker/"
+S = "${WORKDIR}/gst-plugin-msgbroker"
 
 # Install directries.
 INSTALL_BINDIR := "${bindir}"
