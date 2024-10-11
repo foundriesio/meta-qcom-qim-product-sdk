@@ -67,6 +67,9 @@ RDEPENDS:${PN}:qcom-custom-bsp = " \
     qcom-gstreamer1.0-plugins-oss-voverlay \
     qcom-gstreamer1.0-plugins-oss-vsplit \
     qcom-gstreamer1.0-plugins-oss-vtransform \
+    qcom-gstreamer1.0-plugins-oss-mlsnpe \
+    qcom-gstreamer1.0-plugins-oss-mlqnn \
+    qcom-gstreamer1.0-plugins-oss-mltflite \
     qcom-gstreamer1.0-oss-python-examples \
    "
 
