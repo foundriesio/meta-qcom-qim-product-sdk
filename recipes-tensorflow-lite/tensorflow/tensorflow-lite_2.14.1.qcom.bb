@@ -11,7 +11,7 @@ DEPENDS = "\
     protobuf-native \
     jpeg \
     "
-SRCREV = "${AUTOREV}"
+SRCREV = "01502ba03a02fc6126ad61a57e5d4b7919aceb92"
 BRANCH = "iot-ml.lnx.${@'.'.join(d.getVar('PV').split('.')[0:2])}"
 
 SRC_URI = "\
